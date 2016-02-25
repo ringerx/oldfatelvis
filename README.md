@@ -81,14 +81,6 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
 ```
 app/                    --> all of the source files for the application
   app.css               --> default stylesheet
-  components/           --> all app specific modules
-    version/              --> version related components
-      version.js                 --> version module declaration and basic "version" value service
-      version_test.js            --> "version" value service tests
-      version-directive.js       --> custom directive that returns the current app version
-      version-directive_test.js  --> version directive tests
-      interpolate-filter.js      --> custom interpolation filter
-      interpolate-filter_test.js --> interpolate filter tests
   view1/                --> the view1 view template and logic
     view1.html            --> the partial template
     view1.js              --> the controller logic
@@ -97,7 +89,12 @@ app/                    --> all of the source files for the application
     view2.html            --> the partial template
     view2.js              --> the controller logic
     view2_test.js         --> tests of the controller
+  less/
+    style.less
+    style.css
   app.js                --> main application module
+  controllers.js
+  routes.js
   index.html            --> app layout file (the main html template file of the app)
   index-async.html      --> just like index.html, but loads js files asynchronously
 karma.conf.js         --> config file for running unit tests with Karma
