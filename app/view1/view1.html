@@ -1,0 +1,38 @@
+<div ng-controller="EventController">
+    <div class="events">
+
+        <!--SONG KICK API-->
+
+        <div class="date-block" ng-repeat="event in sorted_events = (events | orderBy: 'datetime')">
+            <div class="date-bucket"
+                 ng-show="event.start.date != sorted_events[$index - 1].start.date">{{event.start.date | date:'longDate'}}
+                <span ng-show="event.end">- {{event.end.date | date:'longDate'}}</span>
+            </div>
+            <ul class="">
+                <li class="event-item col-md-12">
+                    <!--DETAILS-->
+                    <div class="details col-xs-12">
+                        <div class=""><a ng-href="{{event.venue.uri}}" target="_blank">{{event.venue.displayName}}</a></div>
+                        <div class="">{{event.location.city}}</div>
+                        <div class="">{{event.start.datetime | date: 'h:mm a'}}</div>
+                    </div>
+
+                    <div class="event-name col-xs-12">{{event.displayName}}</div>
+
+                    <!--ARTISTS-->
+                    <div class="artist-block col-sm-9">
+                        <ul>
+                            <li class="artist" ng-class="{'headliner': performance.billing == 'headline'}"
+                                ng-repeat="performance in event.performance" ng-click="getArtistInfo(performance.displayName)">
+                                {{performance.displayName}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div><a ng-href="{{event.uri}}" target="_blank"><button>info & tickets</button></a></div>
+                </li>
+            </ul>
+        </div>
+        <!---->
+    </div>
+
+</div>
